@@ -1,6 +1,6 @@
 import styles from './ColumnForm.module.scss';
 import { useState } from 'react';
-import Button from '../Button/Button';
+import Button from './../Button/Button';
 
 const ColumnForm = props => {
     const [title, setTitle] = useState('');
