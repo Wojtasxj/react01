@@ -14,6 +14,8 @@ export const getColumnsByList = (state, listId) => {
   return state.columns.filter(column => column.listId === listId);
 };
 
+export const getAllLists = (state) => state.lists;
+
 // action creators
 export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
 export const addCard = payload => ({ type: 'ADD_CARD', payload });
