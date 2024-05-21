@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
 import Container from './../Container/Container';
 import styles from './NavBar.module.scss';
@@ -14,13 +14,16 @@ const NavBar = () => {
           </Link>
           <ul className={styles.navxlist}>
             <li className={styles.navxitem}>
-              <Link to="/" className={styles.navxlink}>Home</Link>
+            <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined}
+                to="/">Home</NavLink>
             </li>
             <li className={styles.navxitem}>
-              <Link to="/favorite" className={styles.navxlink}>Favorite</Link>
+              <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined}
+                to="/favorite">Favorite</NavLink>
             </li>
             <li className={styles.navxitem}>
-              <Link to="/about" className={styles.navxlink}>About</Link>
+            <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined}
+                to="/about">About</NavLink>
             </li>
           </ul>
       </div>

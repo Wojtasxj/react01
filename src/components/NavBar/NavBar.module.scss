@@ -9,6 +9,7 @@
   
   .navxlist {
     list-style-type: none;
+    text-decoration: none;
     margin: 0;
     padding: 0;
     display: flex;
@@ -17,21 +18,17 @@
   .navxitem {
     justify-content: space-between;
     margin-right: 20px;
-    
-  }
-  
-  .navxlink {
-    text-decoration: none; /* Remove underline from links */
-    color: #fff; /* Set text color for navigation links */
-    font-size: 16px; /* Set font size for navigation links */
-  }
-  
-  .navxlink:hover {
-    color: #ffcc00; /* Change text color on hover */
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
   }
   
   .icon {
-    color: #fff; /* Set icon color */
-    font-size: 20px; /* Set icon size */
-    margin-left: 10px; /* Add spacing between icon and text */
+    color: #fff;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .linkActive {
+  color: $color-warning;
   }
