@@ -12,7 +12,7 @@ const SearchForm = () => {
 
     useEffect(() => {
         dispatch(updateSearchString(''));
-      }, []);
+      },[]);
     
     const handleFormSubmit = (event) => {
         event.preventDefault();
