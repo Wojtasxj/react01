@@ -17,14 +17,18 @@ export const getColumnsByList = (state, listId) => {
 export const getAllLists = (state) => state.lists;
 
 // action creators
-export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
+export const addColumn = ({ title, icon, listId }) => ({ type: 'ADD_COLUMN', payload: { title, icon, listId } });
 export const addCard = payload => ({ type: 'ADD_CARD', payload });
 export const updateSearchString = (searchString) => ({
   type: 'UPDATE_SEARCHSTRING',
   payload: searchString
 });
+export const addList = ({ title, description }) => ({
+  type: 'ADD_LIST',
+  payload: { title, description }
+});
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
     switch(action.type) {
       case 'ADD_COLUMN':
         return { ...state, columns: [...state.columns, { ...action.payload, id: shortid() }]};
@@ -32,6 +36,8 @@ const reducer = (state, action) => {
         return { ...state, cards: [...state.cards, { ...action.payload, id: shortid() }]};
       case 'UPDATE_SEARCHSTRING':
         return { ...state, searchString: action.payload };
+      case 'ADD_LIST':
+        return { ...state, lists: [...state.lists, { id: shortid(), ...action.payload }]};
       
         default:
         return state;

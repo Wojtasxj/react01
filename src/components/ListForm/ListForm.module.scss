@@ -1,11 +1,12 @@
 @import '../../styles/settings.scss';
 
-.columnForm {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+.listForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     padding: 10px;
+    border-radius: $radius;
   
     @media (max-width: 768px) {
       align-items: stretch;
