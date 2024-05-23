@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Favorite.module.scss'
 import { connect } from 'react-redux';
 import Card from './../Card/Card';
-import { getFavoriteCards } from './../../redux/store';
+import { getFavoriteCards } from './../../redux/cardsRedux';
 
 const FavoriteSubpage = (props) => {
   const { favoriteCards } = props;

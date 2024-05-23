@@ -3,27 +3,38 @@ import 'font-awesome/css/font-awesome.min.css';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleCardFavorite } from '../../redux/store';
+import { toggleCardFavorite, removeCard } from '../../redux/cardsRedux';
 
-const Card = (props) => {
+const Card = ({ id, title, isFavorite }) => {
   const dispatch = useDispatch();
-  const [isFavoriteLocal, setIsFavoriteLocal] = useState(props.isFavorite);
+  const [isFavoriteLocal, setIsFavoriteLocal] = useState(isFavorite);
 
-  const handleClick = () => {
+  const handleClickStar = () => {
     setIsFavoriteLocal(!isFavoriteLocal);
-    dispatch(toggleCardFavorite(props.id));
+    dispatch(toggleCardFavorite(id));
+  };
+
+  const handleClickTrash = () => {
+    dispatch(removeCard({ id }));
   };
 
   return (
-    <li className={styles.card} onClick={handleClick}>
+    <li className={styles.card}>
+      <div>{title}</div>
       <div>
-        {props.title}
+        <i
+          className={clsx(
+            'fa fa-star-o',
+            styles.icon,
+            isFavoriteLocal && styles.active
+          )}
+          onClick={handleClickStar}
+        ></i>
+        <i
+          className={clsx('fa fa-trash', styles.icon)}
+          onClick={handleClickTrash}
+        ></i>
       </div>
-      <i className={clsx(
-        'fa fa-star-o',
-        styles.icon,
-        isFavoriteLocal && styles.active
-      )}></i>
     </li>
   );
 };
