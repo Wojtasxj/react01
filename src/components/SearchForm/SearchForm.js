@@ -9,10 +9,6 @@ import { updateSearchString } from '../../redux/searchStringRedux';
 const SearchForm = () => {
     const dispatch = useDispatch();
     const [searchValue, setSearchValue] = useState('');
-
-    useEffect(() => {
-        dispatch(updateSearchString(''));
-      },[]);
     
     const handleFormSubmit = (event) => {
         event.preventDefault();

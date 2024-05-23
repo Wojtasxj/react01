@@ -8,7 +8,7 @@ export const getColumnsByList = (state, listId) => {
 };
 
 // actions
-const createActionName = actionName => `app/lists/${actionName}`;
+const createActionName = actionName => `app/columns/${actionName}`;
 const ADD_COLUMN = createActionName('ADD_COLUMN');
 
 
