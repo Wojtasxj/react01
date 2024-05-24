@@ -28,15 +28,16 @@ export const removeCard = (id) => ({
     payload: id,
 });
 const cardsReducer = (statePart = [], action) => {
-  console.log('Action received:', action);
-  console.log('State before:', statePart);
-
+ 
   switch(action.type) {
       case ADD_CARD:
         return [...statePart, { ...action.payload, id: shortid() }];
       case REMOVE_CARD:
-        return statePart.filter(card => card.id !== action.payload);
-      case TOGGLE_CARD_FAVORITE:
+        const deleted = statePart.filter(card => card.id !== action.payload);
+        console.log(deleted);
+        return deleted;
+
+        case TOGGLE_CARD_FAVORITE:
         return statePart.map(card => (card.id === action.payload) ? { ...card, isFavorite: !card.isFavorite } : card);
       default:
         return statePart;

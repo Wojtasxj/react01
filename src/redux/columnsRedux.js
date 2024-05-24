@@ -15,7 +15,7 @@ const ADD_COLUMN = createActionName('ADD_COLUMN');
 export const addColumn = ({ title, icon, listId }) => ({ type: ADD_COLUMN, payload: { title, icon, listId } });
 const columnsReducer = (statePart = [], action) => {
     switch(action.type) {
-      case 'ADD_COLUMN':
+      case ADD_COLUMN:
         return [...statePart, { ...action.payload, id: shortid() }];
       default:
         return statePart;
